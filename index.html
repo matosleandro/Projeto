@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Lista de Tarefas</h1>
+  </header>
+
+  <main>
+    <section class="todo">
+      <!-- Formulário para adicionar tarefas -->
+      <form id="todoForm">
+        <label for="title">Título:</label>
+        <input type="text" id="title" required minlength="4" pattern=".*[a-zA-Z].*">
+  
+        <label for="description">Descrição:</label>
+        <textarea id="description" required minlength="20"></textarea>
+  
+        <label for="category">Categoria:</label>
+        <input type="text" id="category" minlength="5" required>
+  
+        <label for="dueDate">Data e Hora de Vencimento:</label>
+        <input type="datetime-local" id="dueDate">
+  
+        <button type="button" onclick="addTask()">Adicionar Tarefa</button>
+      </form>
+    </section>
+
+    <section class="searchSection">
+      <!-- Campo de pesquisa -->
+      <div class="search">
+        <label for="searchTitle">Pesquisar:</label>
+        <input type="text" id="searchTitle" oninput="searchByTitle()">
+        <button type="button" class="searchButton" onclick="searchByTitle()">Pesquisar</button>
+      </div>
+    </section>
+
+    <section class="tasks">
+      <!-- Tabela de tarefas -->
+      <div><h2>Tarefas</h2></div>
+      <table id="tasksTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Categoria</th>
+            <th>Data e Hora</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tasksBody"></tbody>
+      </table>
+    </section>
+
+    <section class="totals">
+      <!-- Totalizadores -->
+      <div><h2>Totalizadores</h2></div>
+      <table id="totalsTable">
+        <tr>
+          <th>Total de Tarefas</th>
+          <td id="totalTasks"></td>
+        </tr>
+        <tr>
+          <th>Tarefas Sem Categoria</th>
+          <td id="tasksWithoutCategory"></td>
+        </tr>
+        <tr>
+          <th>Tarefas Por Categoria</th>
+          <td id="tasksByCategory"></td>
+        </tr>
+        <tr>
+          <th>Tarefas Sem Vencimento</th>
+          <td id="tasksWithoutDueDate"></td>
+        </tr>
+        <tr>
+          <th>Tarefas Vencidas</th>
+          <td id="overdueTasks"></td>
+        </tr>
+        <tr>
+          <th>Tarefas no Prazo</th>
+          <td id="tasksOnTime"></td>
+        </tr>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>Projeto To-Do List desenvolvido como atividade final do módulo de Lógica de Programação</p>
+    <p>Desenvolvido por: <a href="https://github.com/matosleandro">Leandro Bispo</a>, Instrutor do Módulo: <a href="https://github.com/MateusPaixao">Matheus Paixão</a></p>
+  </footer>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
